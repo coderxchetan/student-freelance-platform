@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <title>SkillBridge — Learn. Build. Earn.</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1120;
+      color: #f8fafc;
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 7%;
+      border-bottom: 1px solid #253047;
+    }
+    .logo { font-size: 23px; font-weight: bold; color: #67e8c1; }
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+    .hero {
+      max-width: 1000px;
+      margin: auto;
+      padding: 90px 24px 65px;
+      text-align: center;
+    }
+    .tag {
+      color: #67e8c1;
+      background: #15352f;
+      border-radius: 30px;
+      padding: 8px 14px;
+      font-size: 13px;
+    }
+    h1 {
+      font-size: clamp(38px, 7vw, 68px);
+      line-height: 1.1;
+      margin: 30px 0 20px;
+    }
+    h1 span { color: #67e8c1; }
+    .hero p { color: #aab7cb; max-width: 620px; margin: 0 auto 30px; }
+    .button {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 10px;
+      background: #67e8c1;
+      color: #10201d;
+      font-weight: bold;
+      text-decoration: none;
+      border: 0;
+      cursor: pointer;
+    }
+    .secondary { background: #1a2639; color: white; margin-left: 8px; }
+    .section { padding: 45px 7%; max-width: 1150px; margin: auto; }
+    .section h2 { font-size: 30px; margin-bottom: 8px; }
+    .muted { color: #aab7cb; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 25px;
+    }
+    .card {
+      background: #121d30;
+      border: 1px solid #28364b;
+      padding: 24px;
+      border-radius: 16px;
+      transition: transform .2s, border-color .2s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: #67e8c1; }
+    .card .emoji { font-size: 30px; }
+    .card h3 { margin-bottom: 8px; }
+    .card p { color: #aab7cb; font-size: 14px; }
+    .label {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 20px;
+      background: #15352f;
+      color: #67e8c1;
+      font-size: 12px;
+    }
+    .notice {
+      border: 1px solid #34435a;
+      background: #121d30;
+      padding: 20px;
+      border-radius: 12px;
+      color: #cbd5e1;
+    }
+    footer {
+      text-align: center;
+      padding: 35px 15px;
+      border-top: 1px solid #253047;
+      color: #94a3b8;
+      margin-top: 50px;
+    }
+    @media (max-width: 600px) {
+      header { padding: 16px 5%; }
+      nav a { margin-left: 10px; }
+      .hero { padding-top: 65px; }
+      .secondary { margin: 10px 0 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">SkillBridge.</div>
+    <nav>
+      <a href="#practice">Practice</a>
+      <a href="#jobs">Jobs</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="tag">BUILT FOR STUDENT FREELANCERS</span>
+      <h1>Start small.<br>Build <span>real skills.</span></h1>
+      <p>
+        A place for beginners to practise useful skills, create a portfolio,
+        and discover real freelance opportunities as they grow.
+      </p>
+      <a class="button" href="#practice">Explore practice tasks</a>
+      <a class="button secondary" href="#jobs">Explore jobs</a>
+    </section>
+
+    <section class="section" id="practice">
+      <h2>Learn by doing</h2>
+      <p class="muted">Practice tasks help you learn before taking on client work.</p>
+      <div class="cards">
+        <article class="card">
+          <div class="emoji">🎨</div>
+          <span class="label">Practice task</span>
+          <h3>Design a logo</h3>
+          <p>Create a simple brand logo and add your finished work to your portfolio.</p>
+        </article>
+        <article class="card">
+          <div class="emoji">💻</div>
+          <span class="label">Practice task</span>
+          <h3>Build a webpage</h3>
+          <p>Make a clean landing page using HTML and CSS.</p>
+        </article>
+        <article class="card">
+          <div class="emoji">✍️</div>
+          <span class="label">Practice task</span>
+          <h3>Write product copy</h3>
+          <p>Write a clear, helpful description for an imaginary product.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="jobs">
+      <h2>Real client opportunities</h2>
+      <p class="muted">A separate space for genuine jobs posted by clients.</p>
+      <div class="notice">
+        <strong>Coming soon</strong>
+        <p>Client job listings and applications will be added when the platform's
+        database and account system are connected.</p>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <h2>Made for beginners</h2>
+      <p class="muted">
+        SkillBridge aims to help students build experience gradually through
+        practice, portfolios, and clearly labelled client opportunities.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    SkillBridge · Learn. Build. Grow.<br>
+    <small>This is an early preview. Accounts, uploads, messaging and job applications are not active yet.</small>
+  </footer>
+</body>
+</html>
