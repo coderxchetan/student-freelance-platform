@@ -183,3 +183,486 @@
   </footer>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>SkillBridge — Your Skills, Your Future</title>
+  <meta name="description" content="Practise your skills, build your portfolio, and discover freelance opportunities with SkillBridge.">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a30;
+      --panel2: #17223b;
+      --text: #f5f7ff;
+      --muted: #a4aec5;
+      --mint: #78f0c0;
+      --blue: #8da8ff;
+      --border: rgba(255,255,255,.1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(1120px, 90%); margin: auto; }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11,16,32,.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      font-size: 23px;
+      font-weight: 850;
+      letter-spacing: -1px;
+    }
+    .brand span { color: var(--mint); }
+    .nav-links { display: flex; align-items: center; gap: 27px; }
+    .nav-links a { color: var(--muted); font-size: 14px; transition: color .2s; }
+    .nav-links a:hover { color: var(--mint); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      background: var(--mint);
+      color: #092019;
+      font-size: 14px;
+      font-weight: 750;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s, background .2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px #78f0c022; }
+    .btn-outline { color: var(--text); background: transparent; border-color: var(--border); }
+    .btn-outline:hover { border-color: var(--mint); box-shadow: none; }
+    .menu-btn { display: none; }
+
+    .hero {
+      position: relative;
+      padding: 100px 0 82px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 520px;
+      height: 520px;
+      right: -150px;
+      top: -100px;
+      background: radial-gradient(circle, #5b77ff2b 0%, transparent 68%);
+      animation: float 8s ease-in-out infinite alternate;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 420px;
+      height: 420px;
+      left: -220px;
+      bottom: -180px;
+      background: radial-gradient(circle, #78f0c01b 0%, transparent 70%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      align-items: center;
+      gap: 55px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 12px;
+      color: var(--mint);
+      background: #78f0c012;
+      border: 1px solid #78f0c02b;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .7px;
+    }
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 12px var(--mint);
+    }
+    h1 {
+      margin: 25px 0 20px;
+      max-width: 680px;
+      font-size: clamp(42px, 6vw, 70px);
+      line-height: 1.06;
+      letter-spacing: -3.5px;
+    }
+    .gradient-text {
+      color: var(--mint);
+      background: linear-gradient(95deg, var(--mint), var(--blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-copy { color: var(--muted); max-width: 560px; font-size: 17px; }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .hero-note { margin-top: 22px; color: #8490aa; font-size: 12px; }
+
+    .preview {
+      position: relative;
+      padding: 23px;
+      background: linear-gradient(145deg, #1c2945, #11182b);
+      border: 1px solid #ffffff19;
+      border-radius: 24px;
+      box-shadow: 0 30px 90px #0005;
+      animation: float 6s ease-in-out infinite alternate;
+    }
+    .preview-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .preview-label { color: var(--muted); font-size: 12px; }
+    .status { color: var(--mint); font-size: 11px; }
+    .preview h3 { font-size: 21px; margin: 17px 0 5px; }
+    .preview p { color: var(--muted); font-size: 13px; margin: 0; }
+    .progress {
+      height: 7px;
+      border-radius: 20px;
+      background: #ffffff12;
+      overflow: hidden;
+      margin: 17px 0 8px;
+    }
+    .progress span {
+      display: block;
+      width: 68%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--mint), var(--blue));
+    }
+    .preview-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+    .mini-stat { padding: 15px; background: #ffffff07; border: 1px solid var(--border); border-radius: 13px; }
+    .mini-stat strong { display: block; font-size: 20px; }
+    .mini-stat span { color: var(--muted); font-size: 11px; }
+
+    .trust-strip { border-block: 1px solid var(--border); background: #ffffff03; }
+    .trust-inner { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px 50px; padding: 20px 0; color: var(--muted); font-size: 13px; }
+    .trust-inner strong { color: var(--text); }
+
+    section.content-section { padding: 82px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 28px; }
+    .kicker { color: var(--mint); font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+    h2 { margin: 8px 0; font-size: clamp(29px, 4vw, 42px); line-height: 1.15; letter-spacing: -1.3px; }
+    .section-desc { max-width: 610px; color: var(--muted); margin: 8px 0 0; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, #141e34, #101728);
+      border-radius: 17px;
+      transition: transform .22s, border-color .22s, background .22s;
+    }
+    .card:hover { transform: translateY(-5px); border-color: #78f0c05c; background: #17233a; }
+    .card-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: #78f0c014;
+      font-size: 23px;
+      margin-bottom: 20px;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 19px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+    .card-bottom { margin-top: 22px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .pill { display: inline-block; padding: 5px 9px; border-radius: 30px; background: #78f0c013; color: var(--mint); font-size: 11px; font-weight: 700; }
+    .arrow { color: var(--mint); font-size: 19px; }
+
+    .jobs-area { background: #ffffff03; border-block: 1px solid var(--border); }
+    .job-card { display: flex; align-items: center; gap: 16px; }
+    .job-card .card-icon { flex-shrink: 0; margin: 0; }
+    .job-card .job-info { flex: 1; }
+    .job-card .card-bottom { margin-top: 14px; }
+
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 35px; }
+    .step-number { color: var(--mint); font-size: 13px; font-weight: 800; letter-spacing: 1px; }
+    .step h3 { margin: 10px 0 6px; }
+    .step p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .cta {
+      position: relative;
+      overflow: hidden;
+      padding: 48px;
+      border-radius: 24px;
+      border: 1px solid #78f0c02b;
+      background: radial-gradient(ellipse at top right, #8da8ff20, transparent 50%), #121d30;
+      text-align: center;
+    }
+    .cta p { max-width: 560px; margin: 12px auto 25px; color: var(--muted); }
+
+    footer { border-top: 1px solid var(--border); padding: 30px 0; color: var(--muted); font-size: 13px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @keyframes float { from { transform: translateY(0); } to { transform: translateY(-10px); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+    @media (max-width: 850px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 35px; }
+      .hero { padding-top: 70px; }
+      .preview { max-width: 560px; }
+      .cards { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: 1fr; gap: 23px; }
+      .nav-links { gap: 14px; }
+    }
+    @media (max-width: 600px) {
+      .nav-inner { min-height: 68px; flex-wrap: wrap; padding: 12px 0; }
+      .brand { font-size: 21px; }
+      .nav-actions .btn { padding: 9px 11px; font-size: 12px; }
+      .nav-links { order: 3; width: 100%; justify-content: space-between; padding: 7px 0 2px; }
+      .nav-links a { font-size: 12px; }
+      h1 { letter-spacing: -2px; }
+      .hero { padding: 55px 0; }
+      .hero-copy { font-size: 15px; }
+      .cards { grid-template-columns: 1fr; }
+      section.content-section { padding: 58px 0; }
+      .section-head { align-items: start; flex-direction: column; }
+      .cta { padding: 30px 20px; }
+      .job-card { align-items: start; }
+      .trust-inner { gap: 12px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#">Skill<span>Bridge</span>.</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#practice">Practice</a>
+        <a href="#jobs">Find work</a>
+        <a href="#how">How it works</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-outline" href="#join">Log in</a>
+        <a class="btn" href="#join">Get started ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span class="dot"></span> YOUR JOURNEY STARTS HERE</div>
+          <h1>Your skills deserve a <span class="gradient-text">real opportunity.</span></h1>
+          <p class="hero-copy">
+            Practise by doing. Build a portfolio that shows what you can do.
+            Discover freelance opportunities as you grow — even when you're just starting out.
+          </p>
+          <div class="hero-buttons">
+            <a class="btn" href="#practice">Start practising ↗</a>
+            <a class="btn btn-outline" href="#jobs">Explore opportunities</a>
+          </div>
+          <p class="hero-note">A learning-first space for the next generation of freelancers.</p>
+        </div>
+
+        <div class="preview reveal" aria-label="Illustrative learning dashboard preview">
+          <div class="preview-top">
+            <span class="preview-label">YOUR LEARNING SPACE</span>
+            <span class="status">● READY TO GROW</span>
+          </div>
+          <h3>Every expert started somewhere.</h3>
+          <p>Make your next small step count.</p>
+          <div class="progress"><span></span></div>
+          <p>Example progress illustration · not connected to an account</p>
+          <div class="preview-stats">
+            <div class="mini-stat"><strong>Learn</strong><span>Try a practice task</span></div>
+            <div class="mini-stat"><strong>Create</strong><span>Build your portfolio</span></div>
+            <div class="mini-stat"><strong>Improve</strong><span>Use feedback</span></div>
+            <div class="mini-stat"><strong>Discover</strong><span>Explore opportunities</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-inner">
+        <span>✦ <strong>Learn by doing</strong></span>
+        <span>✦ Clear practice tasks</span>
+        <span>✦ Portfolio building</span>
+        <span>✦ Real jobs kept separate</span>
+      </div>
+    </div>
+
+    <section class="content-section" id="practice">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Build your confidence</div>
+            <h2>Start with what you can do.</h2>
+            <p class="section-desc">Try guided practice projects, develop your skills, and create work you can show to others.</p>
+          </div>
+        </div>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-icon">✦</div>
+            <span class="pill">PRACTICE TASK</span>
+            <h3>Design a brand logo</h3>
+            <p>Explore shapes, typography, and color to create a logo for an imaginary brand.</p>
+            <div class="card-bottom"><span class="muted">Design</span><a class="arrow" href="#join" aria-label="Explore logo practice">↗</a></div>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon">⌘</div>
+            <span class="pill">PRACTICE TASK</span>
+            <h3>Build a landing page</h3>
+            <p>Create a responsive webpage and learn how layout and spacing work together.</p>
+            <div class="card-bottom"><span class="muted">Web development</span><a class="arrow" href="#join" aria-label="Explore webpage practice">↗</a></div>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon">✎</div>
+            <span class="pill">PRACTICE TASK</span>
+            <h3>Write product copy</h3>
+            <p>Turn product details into a useful, clear description for a potential customer.</p>
+            <div class="card-bottom"><span class="muted">Writing</span><a class="arrow" href="#join" aria-label="Explore writing practice">↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section jobs-area" id="jobs">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">Your next opportunity</div>
+            <h2>Practice is different from paid work.</h2>
+            <p class="section-desc">Real client jobs will be listed separately so students can clearly understand which opportunities are practice and which are genuine client work.</p>
+          </div>
+        </div>
+        <div class="cards">
+          <article class="card job-card reveal">
+            <div class="card-icon">↗</div>
+            <div class="job-info">
+              <span class="pill">REAL CLIENT WORK</span>
+              <h3>Client projects are coming</h3>
+              <p>Real listings, budgets, deadlines, and applications will appear here after the job system is built.</p>
+              <div class="card-bottom"><span class="muted">Not active yet</span></div>
+            </div>
+          </article>
+          <article class="card job-card reveal">
+            <div class="card-icon">◎</div>
+            <div class="job-info">
+              <span class="pill">YOUR PORTFOLIO</span>
+              <h3>Show what you can do</h3>
+              <p>In a future version, students will be able to share completed projects and relevant skills.</p>
+              <div class="card-bottom"><span class="muted">Coming later</span></div>
+            </div>
+          </article>
+          <article class="card job-card reveal">
+            <div class="card-icon">⌂</div>
+            <div class="job-info">
+              <span class="pill">CLIENTS & STUDENTS</span>
+              <h3>A space for both sides</h3>
+              <p>Separate student and client accounts will help organize learning and hiring workflows.</p>
+              <div class="card-bottom"><span class="muted">Coming later</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="how">
+      <div class="container">
+        <div class="reveal">
+          <div class="kicker">Simple by design</div>
+          <h2>Small steps. Meaningful progress.</h2>
+          <p class="section-desc">SkillBridge is being built around a beginner-friendly journey.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step reveal">
+            <span class="step-number">STEP 01</span>
+            <h3>Practise a skill</h3>
+            <p>Start with a clearly labelled task and learn by making something yourself.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step-number">STEP 02</span>
+            <h3>Build your portfolio</h3>
+            <p>Collect examples of your work and improve them with useful feedback.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step-number">STEP 03</span>
+            <h3>Explore opportunities</h3>
+            <p>When ready, discover genuine client listings and apply where your skills fit.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="join">
+      <div class="container">
+        <div class="cta reveal">
+          <div class="kicker">Your beginning matters</div>
+          <h2>You've got skills to build.</h2>
+          <p>We're creating a place where beginners can learn, practise, and take their next step with confidence.</p>
+          <a class="btn" href="#practice">Explore the preview ↑</a>
+          <p style="font-size:12px;margin-bottom:0">Sign-in and registration are not connected yet. This preview does not collect account details.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="brand" href="#">Skill<span>Bridge</span>.</a>
+      <span>Learn. Build. Grow. · Early preview</span>
+    </div>
+  </footer>
+
+  <script>
+    const items = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      items.forEach((item) => observer.observe(item));
+    } else {
+      items.forEach((item) => item.classList.add("visible"));
+    }
+  </script>
+</body>
+</html>
