@@ -143,6 +143,19 @@
       font-weight: 750;
       letter-spacing: .7px;
     }
+    .start-word { color: #ff4545; }
+    .trust-message {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2px;
+      color: var(--text);
+      font-weight: 700;
+    }
+    .trust-message strong { color: var(--muted); font-weight: 600; }
+
     .dot {
       width: 7px;
       height: 7px;
@@ -370,7 +383,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="reveal">
-          <div class="eyebrow"><span class="dot"></span> YOUR JOURNEY STARTS HERE</div>
+          <div class="eyebrow"><span class="dot"></span> <span><span class="start-word">START</span> SMALL. BUILD REAL SKILL.</span></div>
           <h1>Your skills deserve a <span class="gradient-text">real opportunity.</span></h1>
           <p class="hero-copy">
             Practise by doing. Build a portfolio that shows what you can do.
@@ -404,8 +417,10 @@
 
     <div class="trust-strip">
       <div class="container trust-inner">
-        <span>✦ <strong>Learn by</strong></span>
-        <span>✦ Practice. Experiencing. Creating.</span>
+        <div class="trust-message">
+          <span>Learn by</span>
+          <strong>Practice. Experiencing. Creating.</strong>
+        </div>
         <span>✦ Clear practice tasks</span>
         <span>✦ Portfolio building</span>
         <span>✦ Real jobs kept separate</span>
@@ -432,15 +447,15 @@
           <article class="card reveal">
             <div class="card-icon">⌘</div>
             <span class="pill">PRACTICE TASK</span>
-            <h3>Build a landing page</h3>
-            <p>Create a responsive webpage and learn how layout and spacing work together.</p>
+            <h3>Build Portfolio</h3>
+            <p>Create and organise examples of your work so others can see your skills and progress.</p>
             <div class="card-bottom"><span style="color: var(--muted);">Web development</span><a class="arrow" href="#join" aria-label="Explore webpage practice">↗</a></div>
           </article>
           <article class="card reveal">
             <div class="card-icon">✎</div>
             <span class="pill">PRACTICE TASK</span>
-            <h3>Write product copy</h3>
-            <p>Turn product details into a useful, clear description for a potential customer.</p>
+            <h3>Practice Work Copy</h3>
+            <p>Practise writing clear, useful content for a product or service, and build a sample for your portfolio.</p>
             <div class="card-bottom"><span style="color: var(--muted);">Writing</span><a class="arrow" href="#join" aria-label="Explore writing practice">↗</a></div>
           </article>
         </div>
